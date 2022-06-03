@@ -39,5 +39,4 @@ jobs:
           template: ./arm-template/arm-template1.json
           parameters:
             location="${{ env.location }}"
-            resourceGroupName=${{ env.resource_group_name }}
           deploymentName: ${{ env.resource_group_name }}
