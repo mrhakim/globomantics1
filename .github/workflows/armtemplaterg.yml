@@ -14,7 +14,12 @@ jobs:
   armDeploy:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    
+    env:
+      resource_group_name: rg-stg-githubactions
+      location: Australia East
+    environment:
+      name: staging
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -24,10 +29,15 @@ jobs:
         uses: Azure/login@v1
         with:
           creds: ${{secrets.AZ_CREDS}}
-        
-      - name: Azure CLI script
-        uses: azure/CLI@v1
+
+      - name: Deploy Resource Group ${{ env.resource_group_name }}
+        uses: Azure/arm-deploy@v1
         with:
-          azcliversion: 2.30.0
-          inlineScript: |
-            az account show
+          scope: subscription
+          subscriptionId: ${{ env.subscriptionId }}
+          region: "${{ env.location }}"
+          template: ./arm-templates/resourcegroup.json
+          parameters:
+            location="${{ env.location }}"
+            resourceGroupName=${{ env.resource_group_name }}
+          deploymentName: ${{ env.resource_group_name }}
