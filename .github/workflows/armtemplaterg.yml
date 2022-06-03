@@ -1,13 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: areTemplateDeploy
+name: armTemplateDeployRG1
 
 # Controls when the workflow will run
 
 on:
   workflow_dispatch:
 env:
-  subscriptionId: 4d0243f5-b1f4-4bd0-91bb-ce6481e6e810
+  subscriptionId: d115c59d-1362-424a-b30d-a254b28c46bb
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
