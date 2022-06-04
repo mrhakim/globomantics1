@@ -17,7 +17,7 @@ jobs:
     
     env:
       resource_group_name: rg-stg-githubactions
-      location: Australia East
+      location: Central US
     environment:
       name: staging
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -39,4 +39,6 @@ jobs:
           template: ./arm-template/arm-template1.json
           parameters:
             location="${{ env.location }}"
+            rg-name=${{ env.resource_group_name }}
+
           deploymentName: ${{ env.resource_group_name }}
