@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      resource_group_name: rg-stg-githubactions
+      resource_group_name: ArmDemo
       location: Central US
     environment:
       name: staging
