@@ -37,7 +37,7 @@ jobs:
           scope: resourcegroup
           resourceGroupName: ${{ env.resource_group_name }}
           subscriptionId: ${{ env.subscriptionId }}
-          template: ./arm-templates/storageaccount.json
+          template: ./arm-template/storageaccount.json
           parameters: 
             sku=Standard_LRS
             storageAccountName=globostg002
