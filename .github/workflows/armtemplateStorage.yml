@@ -28,8 +28,8 @@ jobs:
       - name: az login
         uses: Azure/login@v1
         with:
-          creds: ${{secrets.AZ_CREDS}
-          
+          creds: ${{secrets.AZ_CREDS}}
+
       - name: Deploy Storage Account
         uses: Azure/arm-deploy@v1
         id: storageAccountDeploy
